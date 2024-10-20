@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>포커 생산</title>
+		<link rel="stylesheet" href="poker.css"/>
+		<script src="poker.js"></script>
+	</head>
+	<body onload="init()">
+		<div class="head">Smart Poker Produce Layout System</div>
+		<div class="main">
+			<div class="line" style="color: #06F;">
+				<div class="block" onclick="select(0)">A<br/>&spades;</div>
+				<div class="block" onclick="select(1)">2<br/>&spades;</div>
+				<div class="block" onclick="select(2)">3<br/>&spades;</div>
+				<div class="block" onclick="select(3)">4<br/>&spades;</div>
+				<div class="block" onclick="select(4)">5<br/>&spades;</div>
+				<div class="block" onclick="select(5)">6<br/>&spades;</div>
+				<div class="block" onclick="select(6)">7<br/>&spades;</div>
+				<div class="block" onclick="select(7)">8<br/>&spades;</div>
+				<div class="block" onclick="select(8)">9<br/>&spades;</div>
+				<div class="block" onclick="select(9)">10<br/>&spades;</div>
+				<div class="block" onclick="select(10)">J<br/>&spades;</div>
+				<div class="block" onclick="select(11)">Q<br/>&spades;</div>
+				<div class="block" onclick="select(12)">K<br/>&spades;</div>
+			</div>
+			<div class="line" style="color: #F00;">
+				<div class="block" onclick="select(13)">A<br/>&hearts;</div>
+				<div class="block" onclick="select(14)">2<br/>&hearts;</div>
+				<div class="block" onclick="select(15)">3<br/>&hearts;</div>
+				<div class="block" onclick="select(16)">4<br/>&hearts;</div>
+				<div class="block" onclick="select(17)">5<br/>&hearts;</div>
+				<div class="block" onclick="select(18)">6<br/>&hearts;</div>
+				<div class="block" onclick="select(19)">7<br/>&hearts;</div>
+				<div class="block" onclick="select(20)">8<br/>&hearts;</div>
+				<div class="block" onclick="select(21)">9<br/>&hearts;</div>
+				<div class="block" onclick="select(22)">10<br/>&hearts;</div>
+				<div class="block" onclick="select(23)">J<br/>&hearts;</div>
+				<div class="block" onclick="select(24)">Q<br/>&hearts;</div>
+				<div class="block" onclick="select(25)">K<br/>&hearts;</div>
+			</div>
+			<div class="line" style="color: #0C0;">
+				<div class="block" onclick="select(26)">A<br/>&clubs;</div>
+				<div class="block" onclick="select(27)">2<br/>&clubs;</div>
+				<div class="block" onclick="select(28)">3<br/>&clubs;</div>
+				<div class="block" onclick="select(29)">4<br/>&clubs;</div>
+				<div class="block" onclick="select(30)">5<br/>&clubs;</div>
+				<div class="block" onclick="select(31)">6<br/>&clubs;</div>
+				<div class="block" onclick="select(32)">7<br/>&clubs;</div>
+				<div class="block" onclick="select(33)">8<br/>&clubs;</div>
+				<div class="block" onclick="select(34)">9<br/>&clubs;</div>
+				<div class="block" onclick="select(35)">10<br/>&clubs;</div>
+				<div class="block" onclick="select(36)">J<br/>&clubs;</div>
+				<div class="block" onclick="select(37)">Q<br/>&clubs;</div>
+				<div class="block" onclick="select(38)">K<br/>&clubs;</div>
+			</div>
+			<div class="line" style="color: #C09;">
+				<div class="block" onclick="select(39)">A<br/>&diams;</div>
+				<div class="block" onclick="select(40)">2<br/>&diams;</div>
+				<div class="block" onclick="select(41)">3<br/>&diams;</div>
+				<div class="block" onclick="select(42)">4<br/>&diams;</div>
+				<div class="block" onclick="select(43)">5<br/>&diams;</div>
+				<div class="block" onclick="select(44)">6<br/>&diams;</div>
+				<div class="block" onclick="select(45)">7<br/>&diams;</div>
+				<div class="block" onclick="select(46)">8<br/>&diams;</div>
+				<div class="block" onclick="select(47)">9<br/>&diams;</div>
+				<div class="block" onclick="select(48)">10<br/>&diams;</div>
+				<div class="block" onclick="select(49)">J<br/>&diams;</div>
+				<div class="block" onclick="select(50)">Q<br/>&diams;</div>
+				<div class="block" onclick="select(51)">K<br/>&diams;</div>
+			</div>
+			<div class="jokers">
+				<div class="block" onclick="select(52)" style="color: #000;line-height: 70px;" joker="1">joker</div>
+				<div class="block" onclick="select(53)" style="color: #000;line-height: 80px;" joker="1">JOKER</div>
+			</div>
+		</div>
+		<div class="layout" onclick="goprint()" disabled="0">click to layout (only 9 cards / 0 cards for checking page)</div>
+	</body>
+</html>
