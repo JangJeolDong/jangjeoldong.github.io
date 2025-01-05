@@ -1,0 +1,47 @@
+html {
+	width: 100vw;
+	height: 100vh;
+	background-color: white;
+}
+body {
+	margin: 0px;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	user-select: none;
+}
+div.main {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+}
+div.textarea {
+	width: 50vw;
+	height: 100vh;
+}
+div.textarea textarea {
+	margin: 2vh 1vw;
+	border-width: 1vh 0.5vw;
+	border-style: solid;
+	border-color: black;
+	outline: 0px;
+	padding: 2vh 1vw;
+	resize: none;
+	width: 45vw;
+	height: 90vh;
+	font: 5vh Consolas;
+}
+div.textarea textarea::selection {
+	color: white;
+	background-color: red;
+}
+div.canvas {
+	width: 50vw;
+	height: 100vh;
+	display: flex;
+}
+div.canvas canvas {
+	max-width: 45vw;
+	max-height: 90vh;
+	margin: auto;
+}
