@@ -1,0 +1,18 @@
+html {
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+}
+body {
+	margin: 0px;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	user-select: none;
+	display: flex;
+}
+canvas {
+	width: calc(min(100vw, 200vh));
+	height: calc(min(50vw, 100vh));
+	margin: auto;
+}
