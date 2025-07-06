@@ -11,7 +11,7 @@ function init() {
 	}
 }
 function run() {
-	if (document.body.clientWidth >= document.body.clientHeight) {
+	if (/*document.body.clientWidth >= document.body.clientHeight*/false) {
 		canvas.width = 1280;
 		canvas.height = 640;
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
