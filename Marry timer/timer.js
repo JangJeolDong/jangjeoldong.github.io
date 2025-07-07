@@ -11,14 +11,16 @@ function init() {
 	}
 }
 function run() {
-	if (/*document.body.clientWidth >= document.body.clientHeight*/false) {
+	if (document.body.clientWidth >= document.body.clientHeight) {
 		canvas.width = 1280;
 		canvas.height = 640;
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
+		canvas.setAttribute("f", "h");
 	} else {
 		canvas.width = 640;
 		canvas.height = 1280;
 		ctx.setTransform(0, 1, -1, 0, 640, 0);
+		canvas.setAttribute("f", "s");
 	}
 	ctx.fillStyle = "#000";
 	ctx.fillRect(0, 0, 1280, 640);
