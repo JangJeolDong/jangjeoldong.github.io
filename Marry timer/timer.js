@@ -90,9 +90,9 @@ function display(y, m, D, H, M, S, DS) {
 	fillImg(9, 1, DS);
 	
 	var t = new Date(2025, 7, 16).getTime() - new Date().getTime();
-	ctx.fillStyle = "#FF0";
+	ctx.fillStyle = "#04F";
 	ctx.fillRect(70, 70, 750, 180);
-	ctx.fillStyle = "#0C0";
+	ctx.fillStyle = "#0BF";
 	ctx.fillRect(70, 70, t / 4968000, 180);
 	var b = t / 3726000000;
 	for (var i = 0; i < 7; i++) {
