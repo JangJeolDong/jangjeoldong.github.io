@@ -7,7 +7,11 @@ function init() {
 	img = document.createElement("img");
 	img.src = "img.png";
 	img.onload = function() {
-		I = setInterval(run, 0);
+		progress = document.createElement("img");
+		progress.src = "progress.png";
+		progress.onload = function() {
+			I = setInterval(run, 0);
+		}
 	}
 }
 function run() {
@@ -90,23 +94,14 @@ function display(y, m, D, H, M, S, DS) {
 	fillImg(9, 1, DS);
 	
 	var t = new Date(2025, 7, 16).getTime() - new Date().getTime();
-	ctx.fillStyle = "#04F";
-	ctx.fillRect(70, 70, 720, 180);
-	ctx.fillStyle = "#0BF";
-	ctx.fillRect(70, 70, t / 5175000, 180);
+
+	ctx.drawImage(progress, 0, 0, 720, 180, 40, 70, 720, 180);
+	ctx.drawImage(progress, 0, 180, t / 5175000, 180, 40, 70, t / 5175000, 180);
+	
 	var b = t / 3726000000;
 	for (var i = 0; i < 7; i++) {
 		b *= 10;
-		ctx.drawImage(img, Math.floor(b) * 120, 0, 120, 240, i * 60 + 220, 100, 60, 120);
+		ctx.drawImage(img, Math.floor(b) * 120, 0, 120, 240, i * 60 + 190, 100, 60, 120);
 		b %= 1;
 	}
-	ctx.strokeStyle = "#000";
-	ctx.lineWidth = 30;
-	ctx.beginPath();
-	ctx.arc(100, 100, 45, Math.PI, Math.PI * 1.5, false);
-	ctx.arc(760, 100, 45, Math.PI * 1.5, 0, false);
-	ctx.arc(760, 220, 45, 0, Math.PI * 0.5, false);
-	ctx.arc(100, 220, 45, Math.PI * 0.5, Math.PI, false);
-	ctx.closePath();
-	ctx.stroke();
 }
