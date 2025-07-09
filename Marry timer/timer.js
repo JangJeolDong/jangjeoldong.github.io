@@ -95,9 +95,9 @@ function display(y, m, D, H, M, S, DS) {
 	
 	var t = new Date(2025, 7, 16).getTime() - new Date().getTime();
 
-	ctx.drawImage(progress, 0, 0, 720, 180, 40, 70, 720, 180);
-	ctx.drawImage(progress, 0, 180, t / 5175000, 180, 40, 70, t / 5175000, 180);
-	
+	ctx.drawImage(progress, 0, 0, 720, 180, 50, 70, 720, 180);
+	ctx.drawImage(progress, 0, 180, t / 5175000, 180, 50, 70, t / 5175000, 180);
+
 	var b = t / 3726000000;
 	for (var i = 0; i < 7; i++) {
 		b *= 10;
