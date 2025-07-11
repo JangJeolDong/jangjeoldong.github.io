@@ -1,9 +1,6 @@
 function init() {
 	canvas = document.getElementsByTagName("canvas")[0];
 	ctx = canvas.getContext("2d");
-	ctx.textAlign = "center";
-	ctx.textBaseline = "middle";
-	ctx.font = "240px SimHei";
 	img = document.createElement("img");
 	img.src = "img.png";
 	img.onload = function() {
@@ -46,7 +43,7 @@ function run() {
 }
 function l(x) {
 	return Infinity;
-	if (x % 12 == 6) {
+	/*if (x % 12 == 6) {
 		if (x == 30) {
 			return 29;
 		} else {
@@ -58,7 +55,7 @@ function l(x) {
 		} else {
 			return 31;
 		}
-	}
+	}*/
 }
 function fillImg(x, y, N) {
 	ctx.drawImage(img, N * 120, 0, 120, 240, x * 120 + 40, y * 320 + 40, 120, 240);
@@ -89,20 +86,16 @@ function display(y, m, D, H, M, S, DS) {
 	fillImg(8, 1, 15);
 	fillImg(9, 1, DS);
 	
-	var t = new Date(2025, 7, 16).getTime() - new Date().getTime();
-
-	//ctx.drawImage(progress, 0, 0, 720, 180, 50, 70, 720, 180);
-	//ctx.drawImage(progress, 0, 180, t / 5175000, 180, 50, 70, t / 5175000, 180);
-
-	var b = t / 3726000000;
+	var b = (new Date(2025, 7, 16).getTime() - new Date().getTime()) / 3726000000;
 	for (var i = 0; i < 7; i++) {
 		b *= 10;
-		ctx.drawImage(img, Math.floor(b) * 120, 0, 120, 240, i * 60 + 190, 55, 60, 120);
+		fillImg(i, 0, Math.floor(b));
 		b %= 1;
 	}
-
-	ctx.fillStyle = "#03F";
-	ctx.fillRect(50, 210, 720, 40);
+	ctx.fillStyle = "#000B";
+	ctx.fillRect(40, 40, 840, 240);
 	ctx.fillStyle = "#0CF";
-	ctx.fillRect(50, 210, t / 5175000, 40);
+	ctx.fillRect(40, 300, 1200, 40);
+	ctx.fillStyle = "#03F";
+	ctx.fillRect(40, 300, 1200 - t / 3105000, 40);
 }
