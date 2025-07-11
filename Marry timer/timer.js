@@ -28,7 +28,7 @@ function run() {
 	}
 	ctx.fillStyle = "#000";
 	ctx.fillRect(0, 0, 1280, 640);
-	//new Date(2030, 8).getTime() / 100
+	//0x47515AD00
 	var t = 0x416397F00 - Math.floor((new Date().getTime()) / 100) - 1;
 	if (t > 0) {
 		var H = Math.floor(t / 36000) % 24;
@@ -95,13 +95,18 @@ function display(y, m, D, H, M, S, DS) {
 	
 	var t = new Date(2025, 7, 16).getTime() - new Date().getTime();
 
-	ctx.drawImage(progress, 0, 0, 720, 180, 50, 70, 720, 180);
-	ctx.drawImage(progress, 0, 180, t / 5175000, 180, 50, 70, t / 5175000, 180);
+	//ctx.drawImage(progress, 0, 0, 720, 180, 50, 70, 720, 180);
+	//ctx.drawImage(progress, 0, 180, t / 5175000, 180, 50, 70, t / 5175000, 180);
 
 	var b = t / 3726000000;
 	for (var i = 0; i < 7; i++) {
 		b *= 10;
-		ctx.drawImage(img, Math.floor(b) * 120, 0, 120, 240, i * 60 + 190, 100, 60, 120);
+		ctx.drawImage(img, Math.floor(b) * 120, 0, 120, 240, i * 60 + 190, 55, 60, 120);
 		b %= 1;
 	}
+
+	ctx.fillStyle = "#03F";
+	ctx.fillRect(50, 210, 720, 40);
+	ctx.fillStyle = "#0CF";
+	ctx.fillRect(50, 210, t / 5175000, 40);
 }
