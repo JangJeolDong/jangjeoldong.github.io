@@ -7,11 +7,7 @@ function init() {
 	img = document.createElement("img");
 	img.src = "img.png";
 	img.onload = function() {
-		progress = document.createElement("img");
-		progress.src = "progress.png";
-		progress.onload = function() {
-			I = setInterval(run, 0);
-		}
+		I = setInterval(run, 0);
 	}
 }
 function run() {
