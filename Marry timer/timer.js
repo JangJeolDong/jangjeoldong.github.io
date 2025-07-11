@@ -86,7 +86,8 @@ function display(y, m, D, H, M, S, DS) {
 	fillImg(8, 1, 15);
 	fillImg(9, 1, DS);
 	
-	var b = (new Date(2025, 7, 16).getTime() - new Date().getTime()) / 3726000000;
+	
+	var b = (1755273600000 - new Date().getTime()) / 3726000000;
 	for (var i = 0; i < 7; i++) {
 		b *= 10;
 		fillImg(i, 0, Math.floor(b));
@@ -97,5 +98,5 @@ function display(y, m, D, H, M, S, DS) {
 	ctx.fillStyle = "#0CF";
 	ctx.fillRect(40, 300, 1200, 40);
 	ctx.fillStyle = "#03F";
-	ctx.fillRect(40, 300, 1200 - t / 3105000, 40);
+	ctx.fillRect(40, 300, (new Date().getTime() - 1751547600000) / 3105000, 40);
 }
