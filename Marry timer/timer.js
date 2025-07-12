@@ -21,8 +21,7 @@ function run() {
 	}
 	ctx.fillStyle = "#000";
 	ctx.fillRect(0, 0, 1280, 640);
-	//0x47515AD00
-	var t = 0x416397F00 - Math.floor((new Date().getTime()) / 100) - 1;
+	var t = 0x47515AD00 - Math.floor((new Date().getTime()) / 100) - 1;
 	if (t > 0) {
 		var H = Math.floor(t / 36000) % 24;
 		var M = Math.floor(t / 600) % 60;
@@ -42,8 +41,7 @@ function run() {
 	}
 }
 function l(x) {
-	return Infinity;
-	/*if (x % 12 == 6) {
+	if (x % 12 == 6) {
 		if (x == 30) {
 			return 29;
 		} else {
@@ -55,13 +53,13 @@ function l(x) {
 		} else {
 			return 31;
 		}
-	}*/
+	}
 }
 function fillImg(x, y, N) {
 	ctx.drawImage(img, N * 120, 0, 120, 240, x * 120 + 40, y * 320 + 40, 120, 240);
 }
 function display(y, m, D, H, M, S, DS) {
-	/*fillImg(0, 0, y);
+	fillImg(0, 0, y);
 	fillImg(1, 0, 10);
 	fillImg(2, 0, 13);
 	if (m > 10) {
@@ -69,7 +67,7 @@ function display(y, m, D, H, M, S, DS) {
 	}
 	fillImg(4, 0, m % 10);
 	fillImg(5, 0, 11);
-	fillImg(6, 0, 13);*/
+	fillImg(6, 0, 13);
 	if (D > 10) {
 		fillImg(7, 0, Math.floor(D / 10));
 	}
@@ -85,18 +83,4 @@ function display(y, m, D, H, M, S, DS) {
 	fillImg(7, 1, S % 10);
 	fillImg(8, 1, 15);
 	fillImg(9, 1, DS);
-	
-	
-	var b = (1755273600000 - new Date().getTime()) / 3726000000;
-	for (var i = 0; i < 7; i++) {
-		b *= 10;
-		fillImg(i, 0, Math.floor(b));
-		b %= 1;
-	}
-	ctx.fillStyle = "#000B";
-	ctx.fillRect(40, 40, 840, 240);
-	ctx.fillStyle = "#0CF";
-	ctx.fillRect(40, 300, 1200, 40);
-	ctx.fillStyle = "#03F";
-	ctx.fillRect(40, 300, (new Date().getTime() - 1751547600000) / 3105000, 40);
 }
