@@ -1,0 +1,20 @@
+html {
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+}
+body {
+	margin: 0px;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	user-select: none;
+	display: flex;
+}
+canvas {
+	margin: auto;
+}
+canvas {
+	max-width: 100vw;
+	max-height: 100vh;
+}
