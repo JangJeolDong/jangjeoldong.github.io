@@ -1,11 +1,7 @@
 function init() {
 	canvas = document.getElementsByTagName("canvas")[0];
 	ctx = canvas.getContext("2d");
-	img = document.createElement("img");
-	img.src = "img.png";
-	img.onload = function() {
-		I = setInterval(run, 0);
-	}
+	I = setInterval(run, 0);
 }
 function device() {
 	if (document.body.clientWidth >= document.body.clientHeight) {
