@@ -85,9 +85,9 @@ function display(y, m, D, H, M, S) {
 	var d = (0x198AE759C00 - new Date().getTime() - 1) / 0x5265C00;
 	var b = d / 43.125;
 
-	ctx.fillStyle = "#04F";
+	ctx.fillStyle = "#0DF";
 	ctx.fillRect(10, 27, 120, 6);
-	ctx.fillStyle = "#0BF";
+	ctx.fillStyle = "#02F";
 	ctx.fillRect(10, 27, 120 * (1 - b), 6);
 
 	for (var i = 0; i < 7; i++) {
