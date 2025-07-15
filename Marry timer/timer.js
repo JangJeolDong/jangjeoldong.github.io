@@ -5,13 +5,13 @@ function init() {
 }
 function device() {
 	if (document.body.clientWidth >= document.body.clientHeight) {
-		canvas.width = 700;
-		canvas.height = 300;
-		ctx.setTransform(5, 0, 0, 5, 0, 0);
+		canvas.width = 280;
+		canvas.height = 120;
+		ctx.setTransform(2, 0, 0, 2, 0, 0);
 	} else {
-		canvas.width = 300;
-		canvas.height = 700;
-		ctx.setTransform(0, 5, -5, 0, 200, 0);
+		canvas.width = 120;
+		canvas.height = 280;
+		ctx.setTransform(0, 2, -2, 0, 60, 0);
 	}
 }
 function run() {
@@ -85,9 +85,9 @@ function display(y, m, D, H, M, S) {
 	var d = (0x198AE759C00 - new Date().getTime() - 1) / 0x5265C00;
 	var b = d / 43.125;
 
-	ctx.fillStyle = "#0DF";
+	ctx.fillStyle = "#0CF";
 	ctx.fillRect(10, 27, 120, 6);
-	ctx.fillStyle = "#02F";
+	ctx.fillStyle = "#04F";
 	ctx.fillRect(10, 27, 120 * (1 - b), 6);
 
 	for (var i = 0; i < 7; i++) {
