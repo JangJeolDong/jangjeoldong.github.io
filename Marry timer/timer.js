@@ -5,19 +5,19 @@ function init() {
 }
 function device() {
 	if (document.body.clientWidth >= document.body.clientHeight) {
-		canvas.width = 1050;
-		canvas.height = 90;
+		canvas.width = 700;
+		canvas.height = 300;
 		ctx.setTransform(5, 0, 0, 5, 0, 0);
 	} else {
-		canvas.width = 90;
-		canvas.height = 1050;
-		ctx.setTransform(0, 5, -5, 0, 90, 0);
+		canvas.width = 300;
+		canvas.height = 700;
+		ctx.setTransform(0, 5, -5, 0, 200, 0);
 	}
 }
 function run() {
 	device();
 	ctx.fillStyle = "#000";
-	ctx.fillRect(0, 0, 1050, 90);
+	ctx.fillRect(0, 0, 140, 60);
 	var wol = 1567 - (new Date().getYear() * 12 + new Date().getMonth());
 	if (wol >= 0) {
 		display(...compute(wol));
@@ -50,39 +50,61 @@ function l(x) {
 		}
 	}
 }
-function fill(x, n) {
-	if (x < 8) {
-		ctx.fillStyle = "#BF0";
+function fill(x, y, n) {
+	if (y == 0) {
+		ctx.fillStyle = "#FFF";
 	} else {
-		ctx.fillStyle = "#F70";
+		if (x < 3) {
+			ctx.fillStyle = "#FF0";
+		} else {
+			ctx.fillStyle = "#F00";
+		}
 	}
+	//ctx.fillStyle = ["#0BF", "#F70"][y];
 	var binfont = decode(font[n]);
 	for (var i = 0; i < 10; i++) {
 		for (var j = 0; j < 18; j++) {
 			if (binfont[i + j * 10] == "1") {
-				ctx.fillRect(x * 12 + 5 + i, j, 1, 1);
+				ctx.fillRect(x * 12 + 5 + i, y * 36 + 3 + j, 1, 1);
 			}
 		}
 	}
 }
 function display(y, m, D, H, M, S) {
-	fill(0, y);
-	fill(1, 10);
+	/*fill(1, 0, y);
+	fill(2, 0, 10);
 	if (m > 10) {
-		fill(2, Math.floor(m / 10));
+		fill(3, 0, Math.floor(m / 10));
 	}
-	fill(3, m % 10);
-	fill(4, 10);
+	fill(4, 0, m % 10);
+	fill(5, 0, 10);
 	if (D > 10) {
-		fill(5, Math.floor(D / 10));
+		fill(6, 0, Math.floor(D / 10));
 	}
-	fill(6, D % 10);
-	fill(9, Math.floor(H / 10));
-	fill(10, H % 10);
-	fill(11, 11);
-	fill(12, Math.floor(M / 10));
-	fill(13, M % 10);
-	fill(14, 11);
-	fill(15, Math.floor(S / 10));
-	fill(16, S % 10);
+	fill(7, 0, D % 10);*/
+	var d = (0x198AE759C00 - new Date().getTime() - 1) / 0x5265C00;
+	var b = d / 43.125;
+
+	ctx.fillStyle = "#04F";
+	ctx.fillRect(10, 27, 120, 6);
+	ctx.fillStyle = "#0BF";
+	ctx.fillRect(10, 27, 120 * (1 - b), 6);
+
+	for (var i = 0; i < 7; i++) {
+		b *= 10;
+		fill(i * 1.5 + 0.5, 0, Math.floor(b));
+		b %= 1;
+	}
+
+	fill(0, 1, Math.floor(d / 10));
+	fill(1, 1, Math.floor(d % 10));
+	fill(2, 1, 10);
+	fill(3, 1, Math.floor(H / 10));
+	fill(4, 1, H % 10);
+	fill(5, 1, 11);
+	fill(6, 1, Math.floor(M / 10));
+	fill(7, 1, M % 10);
+	fill(8, 1, 11);
+	fill(9, 1, Math.floor(S / 10));
+	fill(10, 1, S % 10);
 }
