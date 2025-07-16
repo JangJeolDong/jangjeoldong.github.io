@@ -16,7 +16,7 @@ function device() {
 }
 function run() {
 	device();
-	ctx.fillStyle = "#000";
+	ctx.fillStyle = "#666";
 	ctx.fillRect(0, 0, 140, 60);
 	var wol = 1567 - (new Date().getYear() * 12 + new Date().getMonth());
 	if (wol >= 0) {
