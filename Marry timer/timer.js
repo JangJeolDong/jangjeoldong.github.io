@@ -8,15 +8,17 @@ function device() {
 		canvas.width = 280;
 		canvas.height = 120;
 		ctx.setTransform(2, 0, 0, 2, 0, 0);
+		canvas.setAttribute("f", "h");
 	} else {
 		canvas.width = 120;
 		canvas.height = 280;
-		ctx.setTransform(0, 2, -2, 0, 60, 0);
+		ctx.setTransform(0, 2, -2, 0, 120, 0);
+		canvas.setAttribute("f", "s");
 	}
 }
 function run() {
 	device();
-	ctx.fillStyle = "#666";
+	ctx.fillStyle = "#000";
 	ctx.fillRect(0, 0, 140, 60);
 	var wol = 1567 - (new Date().getYear() * 12 + new Date().getMonth());
 	if (wol >= 0) {
