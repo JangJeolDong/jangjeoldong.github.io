@@ -22,20 +22,11 @@ function run() {
 	ctx.fillRect(0, 0, 140, 60);
 	var wol = 1567 - (new Date().getYear() * 12 + new Date().getMonth());
 	if (wol >= 0) {
-		display(...compute(wol));
+		display(wol);
 	} else {
 		alert("可以结婚了");
 		clearInterval(I);
 	}
-}
-function compute(wol) {
-	var y = Math.floor(wol / 12);
-	var m = wol % 12;
-	var d = l(wol) - new Date().getDate();
-	var H = 23 - new Date().getHours();
-	var M = 59 - new Date().getMinutes();
-	var S = 59 - new Date().getSeconds();
-	return [y, m, d, H, M, S];
 }
 function l(x) {
 	if (x % 12 == 6) {
@@ -72,7 +63,13 @@ function fill(x, y, n) {
 		}
 	}
 }
-function display(y, m, D, H, M, S) {
+function display() {
+	//const y = Math.floor(wol / 12);
+	//const m = wol % 12;
+	//const d = l(wol) - new Date().getDate();
+	const H = 23 - new Date().getHours();
+	const M = 59 - new Date().getMinutes();
+	const S = 59 - new Date().getSeconds();
 	/*fill(1, 0, y);
 	fill(2, 0, 10);
 	if (m > 10) {
@@ -84,23 +81,23 @@ function display(y, m, D, H, M, S) {
 		fill(6, 0, Math.floor(D / 10));
 	}
 	fill(7, 0, D % 10);*/
-	var d = (0x198AE759C00 - new Date().getTime() - 1) / 0x5265C00;
-	var b = d / 43.125;
+	var t = 0x198AE759BFF - new Date().getTime();
+	var d = t / 8.64e7;
+	var b = t / 3.726e9;
 
-	ctx.fillStyle = "#0CF";
-	ctx.fillRect(10, 27, 120, 6);
 	ctx.fillStyle = "#04F";
-	ctx.fillRect(10, 27, 120 * (1 - b), 6);
-
+	ctx.fillRect(10, 27, 120, 6);
+	ctx.fillStyle = "#0CF";
+	ctx.fillRect(10, 27, 120 * b, 6);
 	for (var i = 0; i < 7; i++) {
 		b *= 10;
 		fill(i * 1.5 + 0.5, 0, Math.floor(b));
 		b %= 1;
 	}
-
 	fill(0, 1, Math.floor(d / 10));
 	fill(1, 1, Math.floor(d % 10));
 	fill(2, 1, 10);
+	
 	fill(3, 1, Math.floor(H / 10));
 	fill(4, 1, H % 10);
 	fill(5, 1, 11);
