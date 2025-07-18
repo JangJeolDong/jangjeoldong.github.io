@@ -5,14 +5,14 @@ function init() {
 }
 function device() {
 	if (document.body.clientWidth >= document.body.clientHeight) {
-		canvas.width = 280;
-		canvas.height = 120;
-		ctx.setTransform(2, 0, 0, 2, 0, 0);
+		canvas.width = 140;
+		canvas.height = 50;
+		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		canvas.setAttribute("f", "h");
 	} else {
-		canvas.width = 120;
-		canvas.height = 280;
-		ctx.setTransform(0, 2, -2, 0, 120, 0);
+		canvas.width = 50;
+		canvas.height = 140;
+		ctx.setTransform(0, 1, -1, 0, 50, 0);
 		canvas.setAttribute("f", "s");
 	}
 }
@@ -58,7 +58,7 @@ function fill(x, y, n) {
 	for (var i = 0; i < 10; i++) {
 		for (var j = 0; j < 18; j++) {
 			if (binfont[i + j * 10] == "1") {
-				ctx.fillRect(x * 12 + 5 + i, y * 36 + 3 + j, 1, 1);
+				ctx.fillRect(x * 12 + 5 + i, y * 26 + 3 + j, 1, 1);
 			}
 		}
 	}
@@ -84,10 +84,6 @@ function display() {
 	var t = 0x198AE759BFF - new Date().getTime();
 	var b = t / 4.5576e9;
 
-	ctx.fillStyle = "#04F";
-	ctx.fillRect(10, 27, 120, 6);
-	ctx.fillStyle = "#0CF";
-	ctx.fillRect(10, 27, t / 3.798e7, 6);
 	for (var i = 0; i < 7; i++) {
 		b *= 10;
 		fill(i * 1.5 + 0.5, 0, Math.floor(b));
