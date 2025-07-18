@@ -73,8 +73,8 @@ function display(wol) {
 	}
 	fill(7, 0, d % 10);*/
 	var t = 0x198AE759BFF - new Date().getTime();
-	fill(6, 0, Math.floor(t / 8.64e8));
-	fill(7, 0, Math.floor(t / 8.64e7 % 10));
+	fill(0, 0, Math.floor(t / 8.64e8));
+	fill(1, 0, Math.floor(t / 8.64e7 % 10));
 	
 	fill(0, 1, Math.floor(H / 10));
 	fill(1, 1, H % 10);
