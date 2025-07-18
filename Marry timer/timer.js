@@ -82,20 +82,19 @@ function display() {
 	}
 	fill(7, 0, D % 10);*/
 	var t = 0x198AE759BFF - new Date().getTime();
-	var d = t / 8.64e7;
-	var b = t / 3.726e9;
+	var b = t / 4.5576e9;
 
 	ctx.fillStyle = "#04F";
 	ctx.fillRect(10, 27, 120, 6);
 	ctx.fillStyle = "#0CF";
-	ctx.fillRect(10, 27, 120 * b, 6);
+	ctx.fillRect(10, 27, t / 3.798e7, 6);
 	for (var i = 0; i < 7; i++) {
 		b *= 10;
 		fill(i * 1.5 + 0.5, 0, Math.floor(b));
 		b %= 1;
 	}
-	fill(0, 1, Math.floor(d / 10));
-	fill(1, 1, Math.floor(d % 10));
+	fill(0, 1, Math.floor(t / 8.64e8));
+	fill(1, 1, Math.floor(t / 8.64e7 % 10));
 	fill(2, 1, 10);
 	
 	fill(3, 1, Math.floor(H / 10));
