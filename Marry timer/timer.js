@@ -1,6 +1,10 @@
 function init() {
 	canvas = document.getElementsByTagName("canvas")[0];
 	ctx = canvas.getContext("2d");
+	f = [];
+	for (var i = 0; i < 12; i++) {
+		f[i] = decode(font[i]);
+	}
 	I = setInterval(run, 0);
 }
 function device() {
@@ -45,10 +49,9 @@ function l(x) {
 }
 function fill(x, y, n) {
 	ctx.fillStyle = ["#FF0", "#F00"][y];
-	var binfont = decode(font[n]);
 	for (var i = 0; i < 10; i++) {
 		for (var j = 0; j < 18; j++) {
-			if (binfont[i + j * 10] == "1") {
+			if (f[n][i + j * 10] == "1") {
 				ctx.fillRect(x * 12 + 3 + i, y * 26 + 3 + j, 1, 1);
 			}
 		}
