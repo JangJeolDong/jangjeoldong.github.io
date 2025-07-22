@@ -2,21 +2,21 @@ function init() {
 	canvas = document.getElementsByTagName("canvas")[0];
 	ctx = canvas.getContext("2d");
 	f = [];
-	for (var i = 0; i < 12; i++) {
+	for (var i = 0; i < 13; i++) {
 		f[i] = decode(font[i]);
 	}
 	I = setInterval(run, 0);
 }
 function device() {
 	if (document.body.clientWidth >= document.body.clientHeight) {
-		canvas.width = 100;
-		canvas.height = 50;
-		ctx.setTransform(1, 0, 0, 1, 0, 0);
+		canvas.width = 1000;
+		canvas.height = 500;
+		ctx.setTransform(10, 0, 0, 10, 0, 0);
 		canvas.setAttribute("f", "h");
 	} else {
-		canvas.width = 50;
-		canvas.height = 100;
-		ctx.setTransform(0, 1, -1, 0, 50, 0);
+		canvas.width = 500;
+		canvas.height = 1000;
+		ctx.setTransform(0, 10, -10, 0, 500, 0);
 		canvas.setAttribute("f", "s");
 	}
 }
