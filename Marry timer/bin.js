@@ -1,12 +1,3 @@
-function binnum(str) {
-	var x = 0;
-	for (var i = 0; i < str.length; i++) {
-		if (str[i] == 1) {
-			x += 2 ** (str.length - i - 1);
-		}
-	}
-	return x;
-}
 function numbin(x, d) {
 	var str = "";
 	for (var i = 0; i < d; i++) {
