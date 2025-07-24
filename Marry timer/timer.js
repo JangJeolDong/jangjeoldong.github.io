@@ -48,7 +48,7 @@ function l(x) {
 	}
 }
 function fill(x, y, n) {
-	ctx.fillStyle = ["#FF0", "#F00"][y];
+	ctx.fillStyle = ["#80C", "#FAF"][y];
 	for (var i = 0; i < 10; i++) {
 		for (var j = 0; j < 18; j++) {
 			if (f[n][i + j * 10] == "1") {
