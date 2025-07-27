@@ -48,7 +48,11 @@ function l(x) {
 	}
 }
 function fill(x, y, n) {
-	ctx.fillStyle = ["#FE4", "#F69"][y];
+	if (x < 3) {
+		ctx.fillStyle = "#FE4"
+	} else {
+		ctx.fillStyle = ["#4CF", "#F69"][y];
+	}
 	for (var i = 0; i < 10; i++) {
 		for (var j = 0; j < 18; j++) {
 			if (f[n][i + j * 10] == "1") {
@@ -78,6 +82,10 @@ function display(wol) {
 	var t = 0x198AE759BFF - new Date().getTime();
 	fill(0, 0, Math.floor(t / 8.64e8));
 	fill(1, 0, Math.floor(t / 8.64e7 % 10));
+	
+	fill(4, 0, Math.floor(t / 3.6e8 % 10));
+	fill(5, 0, Math.floor(t / 3.6e7 % 10));
+	fill(6, 0, Math.floor(t / 3.6e6 % 10));
 	
 	fill(0, 1, Math.floor(H / 10));
 	fill(1, 1, H % 10);
