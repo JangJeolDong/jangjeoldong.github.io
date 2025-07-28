@@ -9,14 +9,14 @@ function init() {
 }
 function device() {
 	if (document.body.clientWidth >= document.body.clientHeight) {
-		canvas.width = 1000;
-		canvas.height = 500;
+		canvas.width = 1400;
+		canvas.height = 560;
 		ctx.setTransform(10, 0, 0, 10, 0, 0);
 		canvas.setAttribute("f", "h");
 	} else {
-		canvas.width = 500;
-		canvas.height = 1000;
-		ctx.setTransform(0, 10, -10, 0, 500, 0);
+		canvas.width = 560;
+		canvas.height = 1400;
+		ctx.setTransform(0, 10, -10, 0, 560, 0);
 		canvas.setAttribute("f", "s");
 	}
 }
@@ -48,15 +48,19 @@ function l(x) {
 	}
 }
 function fill(x, y, n) {
-	if (x < 3) {
-		ctx.fillStyle = "#FE4"
+	if (y == 0) {
+		ctx.fillStyle = "#FFF";
 	} else {
-		ctx.fillStyle = ["#4CF", "#F69"][y];
+		if (x < 3) {
+			ctx.fillStyle = "#FF0"
+		} else {
+			ctx.fillStyle = "#F00";
+		}
 	}
 	for (var i = 0; i < 10; i++) {
 		for (var j = 0; j < 18; j++) {
 			if (f[n][i + j * 10] == "1") {
-				ctx.fillRect(x * 12 + 3 + i, y * 26 + 3 + j, 1, 1);
+				ctx.fillRect(x * 12 + 5 + i, y * 32 + 3 + j, 1, 1);
 			}
 		}
 	}
@@ -80,19 +84,28 @@ function display(wol) {
 	}
 	fill(7, 0, d % 10);*/
 	var t = 0x198AE759BFF - new Date().getTime();
-	fill(0, 0, Math.floor(t / 8.64e8));
-	fill(1, 0, Math.floor(t / 8.64e7 % 10));
+	var b = t / 86400000 / 43.125;
+
+	ctx.fillStyle = "#04F";
+	ctx.fillRect(5, 25, 130, 6);
+	ctx.fillStyle = "#0CF";
+	ctx.fillRect(5, 25, b * 130, 6);
 	
-	fill(4, 0, Math.floor(t / 3.6e8 % 10));
-	fill(5, 0, Math.floor(t / 3.6e7 % 10));
-	fill(6, 0, Math.floor(t / 3.6e6 % 10));
-	
-	fill(0, 1, Math.floor(H / 10));
-	fill(1, 1, H % 10);
-	fill(2, 1, 11);
-	fill(3, 1, Math.floor(M / 10));
-	fill(4, 1, M % 10);
+	for (var i = 0; i < 7; i++) {
+		b *= 10;
+		fill(i * 1.5 + 0.5, 0, Math.floor(b));
+		b %= 1;
+	}
+
+	fill(0, 1, Math.floor(t / 8.64e8));
+	fill(1, 1, Math.floor(t / 8.64e7 % 10));
+	fill(2, 1, 10);
+	fill(3, 1, Math.floor(H / 10));
+	fill(4, 1, H % 10);
 	fill(5, 1, 11);
-	fill(6, 1, Math.floor(S / 10));
-	fill(7, 1, S % 10);
+	fill(6, 1, Math.floor(M / 10));
+	fill(7, 1, M % 10);
+	fill(8, 1, 11);
+	fill(9, 1, Math.floor(S / 10));
+	fill(10, 1, S % 10);
 }
