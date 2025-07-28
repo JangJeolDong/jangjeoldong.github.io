@@ -84,7 +84,7 @@ function display(wol) {
 	}
 	fill(7, 0, d % 10);*/
 	var t = 0x198AE759BFF - new Date().getTime();
-	var b = t / 86400000 / 43.125;
+	var b = t / 3600000 / 1265;
 
 	ctx.fillStyle = "#04F";
 	ctx.fillRect(5, 25, 130, 6);
