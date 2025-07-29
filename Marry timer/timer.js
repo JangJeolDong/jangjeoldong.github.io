@@ -51,7 +51,7 @@ function fill(x, y, n) {
 	if (y == 0) {
 		ctx.fillStyle = "#FFF";
 	} else {
-		if (x < 3) {
+		if (x < 41) {
 			ctx.fillStyle = "#FF0"
 		} else {
 			ctx.fillStyle = "#F00";
@@ -60,10 +60,13 @@ function fill(x, y, n) {
 	for (var i = 0; i < 10; i++) {
 		for (var j = 0; j < 18; j++) {
 			if (f[n][i + j * 10] == "1") {
-				ctx.fillRect(x * 12 + 5 + i, y * 32 + 3 + j, 1, 1);
+				ctx.fillRect(x + i, y * 32 + 3 + j, 1, 1);
 			}
 		}
 	}
+}
+function hamSu(x) {
+	return 1 - ((x * 410 + 2206) / 2616) ** 2;
 }
 function display(wol) {
 	const y = Math.floor(wol / 12);
@@ -84,28 +87,29 @@ function display(wol) {
 	}
 	fill(7, 0, d % 10);*/
 	var t = 0x198AE759BFF - new Date().getTime();
-	var b = t / 0x10F708680;
+	var b = t / 0x57F9F900;
 
 	ctx.fillStyle = "#04F";
 	ctx.fillRect(5, 25, 130, 6);
 	ctx.fillStyle = "#0CF";
 	ctx.fillRect(5, 25, b * 130, 6);
 	
+	var B = hamSu(b);
 	for (var i = 0; i < 7; i++) {
-		b *= 10;
-		fill(i * 1.5 + 0.5, 0, Math.floor(b));
-		b %= 1;
+		B *= 10;
+		fill(i * 18 + 11, 0, Math.floor(B));
+		B %= 1;
 	}
 
-	fill(0, 1, Math.floor(t / 8.64e8));
-	fill(1, 1, Math.floor(t / 8.64e7 % 10));
-	fill(2, 1, 10);
-	fill(3, 1, Math.floor(H / 10));
-	fill(4, 1, H % 10);
-	fill(5, 1, 11);
-	fill(6, 1, Math.floor(M / 10));
-	fill(7, 1, M % 10);
-	fill(8, 1, 11);
-	fill(9, 1, Math.floor(S / 10));
-	fill(10, 1, S % 10);
+	fill(5, 1, Math.floor(t / 8.64e8));
+	fill(17, 1, Math.floor(t / 8.64e7 % 10));
+	fill(29, 1, 10);
+	fill(41, 1, Math.floor(H / 10));
+	fill(53, 1, H % 10);
+	fill(65, 1, 11);
+	fill(77, 1, Math.floor(M / 10));
+	fill(89, 1, M % 10);
+	fill(101, 1, 11);
+	fill(113, 1, Math.floor(S / 10));
+	fill(125, 1, S % 10);
 }
