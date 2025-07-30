@@ -66,7 +66,7 @@ function fill(x, y, n) {
 	}
 }
 function hamSu(x) {
-	return 1 - ((x * 410 + 2206) / 2616) ** 2;
+	return 1 - ((x + 0x20CDACB00) / 0x264D4C400) ** 2;
 }
 function display(wol) {
 	const y = Math.floor(wol / 12);
@@ -94,7 +94,7 @@ function display(wol) {
 	ctx.fillStyle = "#0CF";
 	ctx.fillRect(5, 25, b * 130, 6);
 	
-	var B = hamSu(b);
+	var B = hamSu(t);
 	for (var i = 0; i < 7; i++) {
 		B *= 10;
 		fill(i * 18 + 11, 0, Math.floor(B));
