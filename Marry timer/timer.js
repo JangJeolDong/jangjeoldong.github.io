@@ -87,6 +87,9 @@ function display(wol) {
 	}
 	fill(7, 0, d % 10);*/
 	var t = 0x198AE759BFF - new Date().getTime();
+	if (t < 0) {
+		t = 0;
+	}
 	var b = t / 0x57F9F900;
 
 	ctx.fillStyle = "#04F";
