@@ -65,8 +65,9 @@ function fill(x, y, n) {
 		}
 	}
 }
-function hamSu(x) {
-	return 1 - ((x + 0x20CDACB00) / 0x264D4C400) ** 2;
+function hamSu() {
+	var sh = new Date(2025, 10, 25, 22) - new Date().getTime() - 1;
+	return 1 - (sh / (119 * 8.64e7)) ** 2;
 }
 function display(wol) {
 	const y = Math.floor(wol / 12);
@@ -86,16 +87,16 @@ function display(wol) {
 		fill(6, 0, Math.floor(d / 10));
 	}
 	fill(7, 0, d % 10);*/
-	var t = 0x198AE759BFF - new Date().getTime();
+	var t = new Date(2025, 7, 16).getTime() - new Date().getTime() - 1;
 	if (t < 0) {
 		t = 0;
 	}
-	var b = t / 0x57F9F900;
+	var b = t / ((17 * 24 + 2) * 3.6e6);
 
 	ctx.fillStyle = "#04F";
-	ctx.fillRect(5, 25, 130, 6);
+	ctx.fillRect(6, 25, 128, 6);
 	ctx.fillStyle = "#0CF";
-	ctx.fillRect(5, 25, b * 130, 6);
+	ctx.fillRect(6, 25, b * 128, 6);
 	
 	var B = hamSu(t);
 	for (var i = 0; i < 7; i++) {
