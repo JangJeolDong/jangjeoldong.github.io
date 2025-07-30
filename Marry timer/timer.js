@@ -91,12 +91,11 @@ function display(wol) {
 	if (t < 0) {
 		t = 0;
 	}
-	var b = t / ((17 * 24 + 2) * 3.6e6);
 
 	ctx.fillStyle = "#04F";
 	ctx.fillRect(6, 25, 128, 6);
 	ctx.fillStyle = "#0CF";
-	ctx.fillRect(6, 25, b * 128, 6);
+	ctx.fillRect(6, 25, t / (410 * 3.6e6) * 128, 6);
 	
 	var B = hamSu(t);
 	for (var i = 0; i < 7; i++) {
