@@ -69,6 +69,11 @@ function hamSu() {
 	var sh = new Date(2025, 10, 25, 22) - new Date().getTime() - 1;
 	return 1 - (sh / (119 * 8.64e7)) ** 2;
 }
+function Be() {
+	var sh = new Date(2030, 8).getTime() - new Date().getTime() - 1;
+	var al = new Date(2030, 8).getTime() - new Date(2025, 3, 28, 6).getTime();
+	return sh / al;
+}
 function display(wol) {
 	const y = Math.floor(wol / 12);
 	const m = wol % 12;
@@ -87,21 +92,22 @@ function display(wol) {
 		fill(6, 0, Math.floor(d / 10));
 	}
 	fill(7, 0, d % 10);*/
-	var t = new Date(2025, 7, 16).getTime() - new Date().getTime() - 1;
-	if (t < 0) {
-		t = 0;
-	}
-
+	
 	ctx.fillStyle = "#04F";
 	ctx.fillRect(6, 25, 128, 6);
 	ctx.fillStyle = "#0CF";
-	ctx.fillRect(6, 25, t / (410 * 3.6e6) * 128, 6);
+	ctx.fillRect(6, 25, Be() * 128, 6);
 	
-	var B = hamSu(t);
+	var B = hamSu();
 	for (var i = 0; i < 7; i++) {
 		B *= 10;
 		fill(i * 18 + 11, 0, Math.floor(B));
 		B %= 1;
+	}
+
+	var t = new Date(2025, 7, 16).getTime() - new Date().getTime() - 1;
+	if (t < 0) {
+		t = 0;
 	}
 
 	fill(5, 1, Math.floor(t / 8.64e8));
