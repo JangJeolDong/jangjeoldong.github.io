@@ -1,0 +1,115 @@
+html {
+	width: 100vw;
+	height: 100vh;
+}
+body {
+	margin: 0px;
+	width: 100vw;
+	height: 100vh;
+	user-select: none;
+	overflow: hidden;
+}
+div.main {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+}
+div.list {
+	width: 30vw;
+	height: 100vh;
+}
+div.song {
+	width: 30vw;
+	display: flex;
+	text-align: center;
+}
+div.song[selected="1"] {
+	color: white;
+	background-color: red;
+}
+div.song[enabled="1"] {
+	color: red;
+}
+div.name {
+	width: 18vw;
+	height: 100%;
+	font-family: SimHei;
+	text-align: center;
+}
+div.name:hover {
+	color: black;
+	background-color: yellow;
+}
+div.sel {
+	width: 4vw;
+	height: 100%;
+	font-family: Consolas;
+}
+div.sel:hover {
+	color: black;
+	background-color: yellow;
+}
+div.updown {
+	width: 4vw;
+	height: 100%;
+	font-family: Consolas;
+}
+div.updown:hover {
+	color: black;
+	background-color: yellow;
+}
+div.content {
+	width: 70vw;
+	height: 100vh;
+}
+div.playing {
+	width: 70vw;
+	height: 30vh;
+	font: 15vh Kaiti;
+	text-align: center;
+	line-height: 30vh;
+}
+div.console {
+	width: 70vw;
+	height: 19vh;
+}
+div.scroll {
+	width: 70vw;
+	height: 6vh;
+}
+div.area {
+	width: 70vw;
+	height: 2.5vh;
+}
+div.point {
+	width: 2.5vw;
+	height: 2.5vh;
+	background-color: red;
+}
+div.line {
+	width: 70vw;
+	height: 1vh;
+	background-color: red;
+}
+div.time {
+	width: 70vw;
+	height: 13vh;
+	font: 8vh Consolas;
+	text-align: center;
+	line-height: 13vh;
+}
+div.control {
+	width: 70vw;
+	height: 8.5vh;
+	display: flex;
+}
+div.icon {
+	width: 14vw;
+	height: 8.5vh;
+	font: 4.5vh SimHei;
+	text-align: center;
+	line-height: 8.5vh;
+}
+div.icon:hover {
+	background-color: yellow;
+}
