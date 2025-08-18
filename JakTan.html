@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>JakTan</title>
+		<style>
+			html {
+				width: 8.25in;
+				height: 11.75in;
+			}
+			body {
+				margin: 0.875in 0.375in;
+				width: 7.5in;
+				height: 10in;
+				overflow: hidden;
+				user-select: none;
+			}
+			div.line {
+				width: 7.5in;
+				height: 2in;
+				display: flex;
+			}
+			canvas {
+				width: 2.5in;
+				height: 2in;
+			}
+		</style>
+		<script>
+			function hole(x, y) {
+				ctx.fillStyle = "#000";
+				ctx.beginPath();
+				ctx.arc(x, y, 9, -Math.PI, Math.PI);
+				ctx.fill();
+				ctx.fillStyle = "#F00";
+				ctx.beginPath();
+				ctx.arc(x, y, 4, -Math.PI, Math.PI);
+				ctx.fill();
+				ctx.fillStyle = "#000";
+			}
+			function triode(x, y) {
+				ctx.font = "24px Courier New";
+				for (var i = -1; i <= 1; i++) {
+					hole(x, y + i * 25);
+				}
+			}
+			function init() {
+				canvases = document.getElementsByTagName("canvas");
+				for (var i = 0; i < 15; i++) {
+					//canvases[i].style.left = String(i % 3 * 240 + 36) + "px";
+					//canvases[i].style.top = String(Math.floor(i / 3) * 192 + 84) + "px";
+				}
+				canvas = canvases[0];
+				ctx = canvas.getContext("2d");
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				ctx.fillStyle = "#FFF";
+				ctx.fillRect(0, 0, 1270, 1016);
+				ctx.setTransform(-2, 0, 0, 2, 1235, 108);
+				ctx.fillStyle = "#00F";
+				ctx.fillRect(-5, -5, 610, 5);
+				ctx.fillRect(-5, 400, 610, 5);
+				ctx.fillRect(-5, -5, 5, 410);
+				ctx.fillRect(600, -5, 5, 410);
+				ctx.fillStyle = "#000";
+				for (var i = 0; i < 12; i++) {
+					triode(i * 35 + 50, 80);
+					for (var j = 0; j < 3; j++) {
+						if (i < 9 || i == 9 && j != 2 || i == 10 && j != 0) {
+							ctx.fillRect(i * 35 + 55, j * 25 + 52.5, 25, 5);
+						}
+					}
+					ctx.font = "20px Consolas";
+					if (i == 0) {
+						ctx.fillText("B", 50, 35);
+						ctx.fillText("C", 30, 80);
+						ctx.fillText("E", 30, 105);
+					} else if (i == 10) {
+						ctx.fillText("E", 400, 35);
+						ctx.fillText("B", 400, 125);
+					} else {
+						ctx.fillText("B", i * 35 + 50, 35);
+						ctx.fillText("E", i * 35 + 50, 125);
+					}
+				}
+				ctx.fillRect(440, 52.5, 105, 5);
+				hole(550, 55);
+				ctx.fillRect(440, 77.5, 55, 5);
+				hole(500, 80);
+				ctx.fillText("Green", 500, 105);
+				ctx.fillText("switch", 500, 125);
+				ctx.fillRect(47.5, 110, 5, 257.5);
+				ctx.fillRect(547.5, 60, 5, 255);
+				ctx.font = "40px Consolas";
+				for (var i = 0; i < 6; i++) {
+					ctx.fillText("Gnd/0V"[i], 30, i * 40 + 140);
+				}
+				for (var i = 0; i < 3; i++) {
+					ctx.fillText("Uin"[i], 570, i * 40 + 140);
+				}
+				ctx.font = "20px Consolas";
+				for (var i = 0; i < 11; i++) {
+					for (var j = 0; j < 2; j++) {
+						hole(i * 40 + 100, j * 70 + 150);
+						if (i != 10) {
+							ctx.fillRect(i * 40 + 105, j * 70 + 147.5, 30, 5);
+							ctx.fillText("10Ω", i * 40 + 100, 185);
+						}
+					}
+				}
+				ctx.fillText("3.7V+", 500, 240);
+				ctx.fillText("(+3.7V)", 200, 240);
+				ctx.fillText("(+3.7V)", 360, 240);
+				ctx.fillText("3.7V-", 100, 295);
+				ctx.fillRect(50, 312.5, 45, 5);
+				hole(100, 315);
+				ctx.fillRect(105, 312.5, 40, 5);
+				hole(150, 315);
+				ctx.fillText("Red", 185, 315);
+				ctx.fillText("switch", 185, 335);
+				hole(220, 315);
+				ctx.fillRect(225, 312.5, 40, 5);
+				hole(270, 315);
+				ctx.fillText("100Ω", 305, 315);
+				hole(340, 315);
+				ctx.fillRect(345, 312.5, 40, 5);
+				hole(390, 315);
+				ctx.fillText("470kΩ", 425, 295);
+				hole(460, 315);
+				ctx.fillRect(465, 312.5, 40, 5);
+				hole(510, 315);
+				ctx.fillText("+", 510, 335);
+				ctx.fillText("1000μF", 510, 295);
+				hole(550, 315);
+				ctx.fillText("-", 550, 335);
+				ctx.fillRect(387.5, 277.5, 162.5, 5);
+				ctx.fillRect(387.5, 277.5, 5, 32.5);
+				ctx.fillRect(47.5, 362.5, 47.5, 5);
+				hole(100, 365);
+				ctx.fillText("-", 100, 385);
+				ctx.fillText("4.5V", 135, 365);
+				hole(170, 365);
+				ctx.fillText("+", 170, 385);
+				ctx.fillRect(175, 362.5, 287.5, 5);
+				ctx.fillRect(457.5, 320, 5, 47.5);
+				ctx.fillText("(+4.5V)", 295, 350);
+				ctx.fillText("(+4.5V)", 415, 350);
+				ctx.font = "40px Consolas";
+				ctx.fillText("4×6cm", 530, 25);
+				for (var i = 1; i < 15; i++) {
+					var Canvas = canvases[i];
+					var Ctx = Canvas.getContext("2d");
+					Ctx.drawImage(canvas, 0, 0);
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div class="line">
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+		</div>
+		<div class="line">
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+		</div>
+		<div class="line">
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+		</div>
+		<div class="line">
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+		</div>
+		<div class="line">
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+			<canvas width="1270" height="1016"></canvas>
+		</div>
+	</body>
+</html>
