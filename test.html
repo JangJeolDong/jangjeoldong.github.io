@@ -1,0 +1,9 @@
+<script>
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            alert("纬度: " + position.coords.latitude);
+            alert("经度: " + position.coords.longitude);
+            alert("精度（米）: " + position.coords.accuracy);
+        }
+    );
+</script>
